@@ -17,4 +17,8 @@ Written in C (plus the minimum assembly needed to get C running), booting on bar
 
 ## Notes
 
+<<<<<<< HEAD
 Each part has a write-up in [`notes/`](notes/) — what I was trying to do, the theory I had to learn first, what broke, and what I still don't understand.
+=======
+Each part has a write-up in [`notes/`](notes/) — what I was trying to do, the theory I had to learn first, what broke, and what I still don't understand.:)
+>>>>>>> 6598f89 (Testing out git controls)
