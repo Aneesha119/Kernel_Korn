@@ -1,5 +1,6 @@
 # Kernel_Korn
 A toy x86 kernel, built from scratch to learn how computers actually work.
+
 Written in C (plus the minimum assembly needed to get C running), booting on bare metal with no operating system underneath — no standard library, no `printf`, no `malloc`. Everything is built by hand, one part at a time.
 
 ## Roadmap
