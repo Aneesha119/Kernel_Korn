@@ -17,4 +17,4 @@ Written in C (plus the minimum assembly needed to get C running), booting on bar
 
 ## Notes
 
-Each part has a write-up in notes/ — what I was trying to do, the theory I had to learn first, what broke, and what I still don't understand.:)
+Each part has a write-up in notes/ — what I was trying to do, the theory I had to learn first, what broke, and what I still don't understand (Be warned, the notes may be a bit lengthy and not comprehensive in any way:)).
