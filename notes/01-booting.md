@@ -1,4 +1,4 @@
-## What even is booting?
+## What even is Booting?
 
 Booting is the most primary procedure, executing by a system when power first hits. This is the first task a kernel (heart of the OS, the communicator between hardware and software ) essentially performs to "wake up" a system, which is not done by a singular program, moreover, it is a relay race between 2 programs, before the baton is finally passed onto the kernel (the one I am aiming to build) . 
 
