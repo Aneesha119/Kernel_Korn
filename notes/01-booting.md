@@ -28,4 +28,5 @@ This is (hopefully) the final bit of theory I encounter before building the firs
 	- Checksum: The most interesting part of our Contract, it is a value chosen so that the sum of the three fields (added as 32 bit values), Magic + Flags + Checksum equal zero. *Why do we need this?* simply because the Magic number is essentially a 32 bit value, it could potentially occur as a portion of a random file's content (as in it isn't essentially UNIQUE unique) which would create problems. But the checksum, which is a hard requirement arithmetic relation between the three, cannot be a coincidence like Magic, and equals zero is the cheapest check there is.
 
 *NOTE 1: The addition is a 32-bit unsigned addition, as in it wraps around on overflow*
+
 *NOTE 2: I had the doubt that why can't the checksum equal 1 as that is the yang to the 0's yin in binary, which on searching upon I found that we would have to define 1 as the special number that our unsigned addition has to equal to while there is no special condition as such for zero, we just check checksum + magic + flags == 0*
