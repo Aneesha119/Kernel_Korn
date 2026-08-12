@@ -16,3 +16,16 @@ Another important concept we will be delving into is, how will GRUB know that th
 
 ***TO BE NOTED:** There exists 2 types of signatures, one magic number is for the firmware, to identify our disc as  "bootable" and the other is the multiboot magic number, which identifies our kernel as Multiboot Contract adjacent.*
 
+## Multiboot Contract
+
+This is (hopefully) the final bit of theory I encounter before building the first component. What we established in the end of last topic is that GRUB verifies a given "section" of our file to check for a signature to boot it. That is the Multiboot Contract, which is a norm for a file so that it is recognized as a kernel by GRUB, in the earlier times, the bootloader had a special code per OS, which would have been a pain, if suppose we, on a windows system also want to have a dual boot for another OS, a Linux subsidiary, this would have been accomplished via either editing the bootloader to add the code adjacent to boot that OS up, which is tough to implement, or the bootloader on every system should contain the OS code for all possible OS' which would maybe slow down our bootloader, or made it inefficient, so both are bad options (in the sense inconvenient) all around. The Contract itself has a few criteria, which are:
+
+- It should be in the first 8 KB of your file (header) & should be 4 byte aligned (GRUB scans in 4 bytes), if not GRUB wont even consider your file.
+- Now, this header must contain these 3 consecutive 32-bit values:
+
+	- Magic: Non derivable, this is standard (for Multiboot 1 specifically), we need to look it up (probably task 1)
+	- Flags: it is a bitfield of requests, each bit is asking/requesting our bootloader to do a initial setup procedure such as providing a memory map, page align loaded modules or even provide custom layout info
+	- Checksum: The most interesting part of our Contract, it is a value chosen so that the sum of the three fields (added as 32 bit values), Magic + Flags + Checksum equal zero. *Why do we need this?* simply because the Magic number is essentially a 32 bit value, it could potentially occur as a portion of a random file's content (as in it isn't essentially UNIQUE unique) which would create problems. But the checksum, which is a hard requirement arithmetic relation between the three, cannot be a coincidence like Magic, and equals zero is the cheapest check there is.
+
+*NOTE 1: The addition is a 32-bit unsigned addition, as in it wraps around on overflow*
+*NOTE 2: I had the doubt that why can't the checksum equal 1 as that is the yang to the 0's yin in binary, which on searching upon I found that we would have to define 1 as the special number that our unsigned addition has to equal to while there is no special condition as such for zero, we just check checksum + magic + flags == 0*
