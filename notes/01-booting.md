@@ -35,7 +35,7 @@ This is (hopefully) the final bit of theory I encounter before building the firs
 
 This is the internal roadmap to achieve booting:
 1. [x] Multiboot header — the "I'm a kernel" sticker GRUB scans for (magic, flags, checksum). Assembled into boot.o.
-2. [ ] Finish the assembly stub — add the entry point: set up a stack (C can't run without one), then call into C.
+2. [x] Finish the assembly stub — add the entry point: set up a stack (C can't run without one), then call into C.
 3. [ ] Write kernel.c — the C function that draws the first character to the screen.
 4. [ ] Linker script — tell the linker how to arrange the pieces in memory, and force the multiboot header into the first 8 KiB.
 5. [ ] Build & link — combine the object files into one bootable binary.
