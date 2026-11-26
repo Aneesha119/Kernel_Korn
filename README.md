@@ -5,7 +5,7 @@ Written in C (plus the minimum assembly needed to get C running), booting on bar
 
 ## Roadmap
 
-- [ ] **01 — Booting** · Machine hands control to my code; one character on screen
+- [x] **01 — Booting** · Machine hands control to my code; one character on screen
 - [ ] **02 — Screen output** · Strings, newlines, scrolling, colors — my own `printf`
 - [ ] **03 — Interrupts** · Responding to events instead of running top-to-bottom
 - [ ] **04 — Keyboard** · Typing works; a human is in the loop
