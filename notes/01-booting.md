@@ -56,3 +56,6 @@ This section deals with the initialization of a stack during boot. Why do we nee
 
 #### SECTION .text
 This section holds the executable code, specifically the `_start` label, as we are initializing it as `global`, which makes it visible to the linker at link time. `global` in NASM is a functionality that makes a label in your .asm file visible to all other files while its mirror, `extern` that we are using in the next line is used to declare a label that is defined in another file (externally), which here is `kernel_main` function in `kernel.c`. The `_start` label in turn contains `mov esp,stack_top)` which initializes the known stack pointer, `esp` to our `stack_top` as our `esp` might point to a garbage value at power ON, so, such that, when we call `kernel_main` in the next line, `esp` makes our stack usable when required. `cli` stands for Clear Interrupt Flag, which disables the hardware interrupts as we don't have any interrupt handling set up yet. then finally the `.hang` acts like an interrupt by putting the CPU in an infinite loop as we are `hlt`ing the CPU execution and as soon as it wakes up, we are "calling" `.hang` again, which halts it again.
+
+##TBR:
+WILL UPDATED NOTES ON KERNEL.C AND LINKER.LD, yet to be done 
